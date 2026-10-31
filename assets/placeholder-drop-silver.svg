@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="占位素材：银两">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <linearGradient id="silver-ingot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f6f2e8"/>
+      <stop offset="0.5" stop-color="#c9d4dc"/>
+      <stop offset="1" stop-color="#6b7c8a"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="12" cy="20" rx="8" ry="2" fill="#070a0f" opacity="0.55"/>
+  <path d="M4 17 L7 9 C8 7 16 7 17 9 L20 17 Z" fill="url(#silver-ingot)" stroke="#111825" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M8.5 11 L15.5 11" stroke="#f6f2e8" stroke-width="1" opacity="0.8"/>
+</svg>

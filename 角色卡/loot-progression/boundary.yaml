@@ -1,0 +1,5 @@
+role: loot-progression
+entries:
+  - kind: directory
+    path: src/loot/
+    purpose: loot-progression 模块：掉落表/拾取磁吸/经验升级/技能解锁/属性成长

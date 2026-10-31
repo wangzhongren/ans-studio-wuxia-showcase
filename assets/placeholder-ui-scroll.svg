@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512" role="img" aria-label="卷轴界面框占位">
+  <defs>
+    <linearGradient id="roller" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0d496"/>
+      <stop offset="0.35" stop-color="#c79a4e"/>
+      <stop offset="0.7" stop-color="#8a5f27"/>
+      <stop offset="1" stop-color="#5a3d1d"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8f1df"/>
+      <stop offset="0.5" stop-color="#efe2c4"/>
+      <stop offset="1" stop-color="#ddc9a1"/>
+    </linearGradient>
+    <radialGradient id="paper-shade" cx="0.5" cy="0.45" r="0.72">
+      <stop offset="0" stop-color="#fffaf0" stop-opacity="0.45"/>
+      <stop offset="0.7" stop-color="#8a5f27" stop-opacity="0"/>
+      <stop offset="1" stop-color="#5a3d1d" stop-opacity="0.18"/>
+    </radialGradient>
+    <linearGradient id="rail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5a3d1d"/>
+      <stop offset="0.5" stop-color="#c79a4e"/>
+      <stop offset="1" stop-color="#5a3d1d"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="18" y="16" width="988" height="48" rx="24" fill="url(#roller)"/>
+  <rect x="18" y="448" width="988" height="48" rx="24" fill="url(#roller)"/>
+  <rect x="10" y="22" width="36" height="36" rx="18" fill="url(#roller)" stroke="#5a3d1d" stroke-width="2"/>
+  <rect x="978" y="22" width="36" height="36" rx="18" fill="url(#roller)" stroke="#5a3d1d" stroke-width="2"/>
+  <rect x="10" y="454" width="36" height="36" rx="18" fill="url(#roller)" stroke="#5a3d1d" stroke-width="2"/>
+  <rect x="978" y="454" width="36" height="36" rx="18" fill="url(#roller)" stroke="#5a3d1d" stroke-width="2"/>
+
+  <rect x="46" y="58" width="932" height="396" rx="12" fill="url(#paper)" stroke="#8a5f27" stroke-width="3"/>
+  <rect x="46" y="58" width="932" height="396" rx="12" fill="url(#paper-shade)"/>
+  <rect x="62" y="74" width="900" height="364" rx="8" fill="none" stroke="#8a5f27" stroke-opacity="0.4" stroke-width="1.5"/>
+  <rect x="70" y="82" width="884" height="348" rx="6" fill="none" stroke="#2e7d6a" stroke-opacity="0.25"/>
+
+  <rect x="40" y="58" width="12" height="396" rx="6" fill="url(#rail)"/>
+  <rect x="972" y="58" width="12" height="396" rx="6" fill="url(#rail)"/>
+
+  <g fill="none" stroke="#8a5f27" stroke-opacity="0.42" stroke-width="2">
+    <path d="M86 96 C104 84 122 84 138 96 C122 92 104 92 86 96 Z"/>
+    <path d="M886 416 C904 404 922 404 938 416 C922 412 904 412 886 416 Z"/>
+    <path d="M86 416 C104 404 122 404 138 416 C122 412 104 412 86 416 Z"/>
+    <path d="M886 96 C904 84 922 84 938 96 C922 92 904 92 886 96 Z"/>
+  </g>
+  <g fill="#a33b32" opacity="0.55">
+    <rect x="900" y="386" width="26" height="26" rx="3" fill="none" stroke="#a33b32" stroke-width="2"/>
+    <path d="M906 396 L920 402 M920 396 L906 402" stroke="#a33b32" stroke-width="1.5"/>
+  </g>
+  <g stroke="#5d6f80" stroke-opacity="0.14" stroke-linecap="round">
+    <path d="M170 122 L854 122" stroke-width="2"/>
+    <path d="M170 132 L700 132" stroke-width="1"/>
+  </g>
+</svg>

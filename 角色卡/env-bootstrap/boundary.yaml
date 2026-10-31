@@ -1,0 +1,14 @@
+role: env-bootstrap
+entries:
+  - kind: directory
+    path: styles/
+    purpose: env-resources 模块：全局样式与 CSS 变量（styles/theme.css）
+  - kind: directory
+    path: assets/
+    purpose: env-resources 模块：程序化自绘占位素材
+  - kind: file
+    path: index.html
+    purpose: entry-index 模块：页面入口与固定脚本加载顺序
+  - kind: file
+    path: run.cmd
+    purpose: entry-index 模块：Windows 一键启动脚本

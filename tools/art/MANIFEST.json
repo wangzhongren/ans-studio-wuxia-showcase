@@ -1,0 +1,160 @@
+{
+  "model": "Qwen/Qwen-Image-2.1",
+  "snapshot": "d26bb61231c349cf6b7896fa83353113880e1ba3",
+  "generatedAt": "2026-10-31T12:27:10Z",
+  "assets": [
+    {
+      "id": "drop-potion",
+      "file": "out/drop-potion.png",
+      "promptFile": "prompts/drop-potion.md",
+      "seed": 2026103201,
+      "status": "ok",
+      "reason": "",
+      "ms": 13251
+    },
+    {
+      "id": "drop-silver",
+      "file": "out/drop-silver.png",
+      "promptFile": "prompts/drop-silver.md",
+      "seed": 2026103202,
+      "status": "ok",
+      "reason": "",
+      "ms": 13329
+    },
+    {
+      "id": "drop-xp",
+      "file": "out/drop-xp.png",
+      "promptFile": "prompts/drop-xp.md",
+      "seed": 2026103112,
+      "status": "ok",
+      "reason": "",
+      "ms": 13064
+    },
+    {
+      "id": "monster-blade",
+      "file": "out/monster-blade.png",
+      "promptFile": "prompts/monster-blade.md",
+      "seed": 2026103108,
+      "status": "ok",
+      "reason": "",
+      "ms": 14416
+    },
+    {
+      "id": "monster-bowman",
+      "file": "out/monster-bowman.png",
+      "promptFile": "prompts/monster-bowman.md",
+      "seed": 2026103107,
+      "status": "ok",
+      "reason": "",
+      "ms": 13751
+    },
+    {
+      "id": "monster-wanderer",
+      "file": "out/monster-wanderer.png",
+      "promptFile": "prompts/monster-wanderer.md",
+      "seed": 2026103106,
+      "status": "ok",
+      "reason": "",
+      "ms": 13212
+    },
+    {
+      "id": "player",
+      "file": "out/player.png",
+      "promptFile": "prompts/player.md",
+      "seed": 2026103102,
+      "status": "ok",
+      "reason": "",
+      "ms": 14015
+    },
+    {
+      "id": "sect-daomen",
+      "file": "out/sect-daomen.png",
+      "promptFile": "prompts/sect-daomen.md",
+      "seed": 2026103104,
+      "status": "ok",
+      "reason": "",
+      "ms": 14724
+    },
+    {
+      "id": "sect-jianzong",
+      "file": "out/sect-jianzong.png",
+      "promptFile": "prompts/sect-jianzong.md",
+      "seed": 2026103103,
+      "status": "ok",
+      "reason": "",
+      "ms": 13282
+    },
+    {
+      "id": "sect-yigu",
+      "file": "out/sect-yigu.png",
+      "promptFile": "prompts/sect-yigu.md",
+      "seed": 2026103105,
+      "status": "ok",
+      "reason": "",
+      "ms": 13064
+    },
+    {
+      "id": "title-bg",
+      "file": "out/title-bg.png",
+      "promptFile": "prompts/title-bg.md",
+      "seed": 2026103101,
+      "status": "ok",
+      "reason": "",
+      "ms": 32696
+    },
+    {
+      "id": "ui-result",
+      "file": "out/ui-result.png",
+      "promptFile": "prompts/ui-result.md",
+      "seed": 2026103111,
+      "status": "ok",
+      "reason": "",
+      "ms": 33806
+    },
+    {
+      "id": "ui-scroll",
+      "file": "out/ui-scroll.png",
+      "promptFile": "prompts/ui-scroll.md",
+      "seed": 2026103109,
+      "status": "ok",
+      "reason": "",
+      "ms": 22097
+    },
+    {
+      "id": "ui-stele",
+      "file": "out/ui-stele.png",
+      "promptFile": "prompts/ui-stele.md",
+      "seed": 2026103110,
+      "status": "ok",
+      "reason": "",
+      "ms": 21743
+    },
+    {
+      "id": "weapon-blade",
+      "file": "out/weapon-blade.png",
+      "promptFile": "prompts/weapon-blade.md",
+      "seed": 2026103116,
+      "status": "ok",
+      "reason": "",
+      "ms": 10951
+    },
+    {
+      "id": "weapon-needle",
+      "file": "out/weapon-needle.png",
+      "promptFile": "prompts/weapon-needle.md",
+      "seed": 2026103117,
+      "status": "ok",
+      "reason": "",
+      "ms": 10618
+    },
+    {
+      "id": "weapon-sword",
+      "file": "out/weapon-sword.png",
+      "promptFile": "prompts/weapon-sword.md",
+      "seed": 2026103115,
+      "status": "ok",
+      "reason": "",
+      "ms": 11078
+    }
+  ]
+}

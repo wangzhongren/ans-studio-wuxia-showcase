@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="占位素材：地面平铺纹理">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材
+       可无缝平铺：所有装饰图形均完全落在 0..128 视口内，不跨边界。 -->
+  <rect width="128" height="128" fill="#0f1722"/>
+  <rect width="128" height="128" fill="none" stroke="#111825" stroke-width="2"/>
+  <g stroke="#18202f" stroke-width="1.5" stroke-linecap="round" opacity="0.9">
+    <path d="M14 22 L34 18"/>
+    <path d="M48 34 L66 30"/>
+    <path d="M86 20 L108 24"/>
+    <path d="M20 62 L38 58"/>
+    <path d="M56 74 L78 70"/>
+    <path d="M96 60 L114 64"/>
+    <path d="M12 100 L30 96"/>
+    <path d="M50 112 L70 108"/>
+    <path d="M92 100 L112 104"/>
+  </g>
+  <g fill="#1f2a3a" opacity="0.85">
+    <circle cx="28" cy="40" r="2"/>
+    <circle cx="74" cy="24" r="1.6"/>
+    <circle cx="104" cy="44" r="2.2"/>
+    <circle cx="44" cy="86" r="1.8"/>
+    <circle cx="86" cy="88" r="2"/>
+    <circle cx="18" cy="118" r="1.5"/>
+    <circle cx="112" cy="116" r="1.7"/>
+  </g>
+  <g fill="#233246" opacity="0.6">
+    <rect x="60" y="48" width="6" height="3" rx="1.5"/>
+    <rect x="24" y="76" width="5" height="3" rx="1.5"/>
+    <rect x="100" y="80" width="6" height="3" rx="1.5"/>
+  </g>
+</svg>

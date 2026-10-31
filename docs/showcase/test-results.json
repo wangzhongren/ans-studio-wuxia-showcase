@@ -1,0 +1,47 @@
+{
+  "verifiedAt": "2026-10-31T13:23:45.465Z",
+  "timezone": "Asia/Shanghai",
+  "scope": "Node automated regression and logic benchmark; no browser visual or FPS acceptance",
+  "tests": [
+    {
+      "command": "node tests/smoke-core.js",
+      "exitCode": 0,
+      "output": "smoke-core: 76 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/integration-check.js --failures",
+      "exitCode": 0,
+      "output": "integration-check (v2): 26 src scripts + tests/perf.js · fake DOM · full flow\n\n[命名空间与 boot]\n\n[开局与门派选择]\n\n[三门派数值]\n\n[移动与背景]\n\n[自动攻击与击杀]\n\n[掉落与拾取]\n\n[美术加载链与渲染回退桥]\n\n[静态资源约束]\n\n[升级三选一]\n\n[结算评分（win）]\n\n[结算后再次开局]\n\n[重开复位]\n\n[结算评分（dead）]\n\n[重置 API]\n\n[F3 / F4 / F5]\n\n[AC-7 静态扫描]\n\n[错误检查]\n\nintegration-check: 575 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/loop-check.js",
+      "exitCode": 0,
+      "output": "loop-check: 15 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/background-check.js",
+      "exitCode": 0,
+      "output": "  ✓ canvas.getContext(\"2d\") 被调用\nbackground-check: core/main.js canvas + world background\n  ✓ canvas.width = CONFIG.viewport.width\n  ✓ canvas.height = CONFIG.viewport.height\n  ✓ Camera.w 同步 1280\n  ✓ Camera.h 同步 720\n  ✓ boot 后为 title 状态\n  ✓ Loop.start 注册了首帧回调\n  ✓ clearRect 使用 1280 宽度\n  ✓ clearRect 使用 720 高度\n  ✓ Camera.apply 执行了 translate\n  ✓ 绘制了世界底色\n  ✓ 绘制了棋盘瓦片（半透明 tile）\n  ✓ 背景在 Camera.apply 之后绘制（translate 先于底色）\n  ✓ 底色复用 CSS --color-night-800\n  ✓ 可见区域 left = 相机 x（世界居中）\n  ✓ 可见区域 top = 相机 y\n  ✓ 仅绘制视口宽度\n  ✓ 仅绘制视口高度\n  ✓ 瓦片复用 CSS --color-night-700\n  ✓ 细/粗网格各一次 stroke\n  ✓ 外沿暗线 + margin 鎏金边界\n  ✓ 外沿使用 --color-ink-500\n  ✓ 可玩边界使用 --color-gold-400\n  ✓ 边界位于 world.margin\n  ✓ ctx.save/restore 配平\n  ✓ 背景绘制不改变 world.state\n  ✓ 背景绘制不改变 runTime\n  ✓ 背景绘制不改变 kills\n  ✓ 第二帧回调仍已注册\n  ✓ 相机移动后仍绘制世界底色\n  ✓ 底色 left 跟随 Camera.x（地图滚动参照）\n\nbackground-check: 31 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/perf-check.js",
+      "exitCode": 0,
+      "output": "perf-check: tests/perf.js\n  ✓ WG.perf 已定义\n  ✓ WG.perf.overlay 存在\n  ✓ WG.perf.fastForward 是函数\n  ✓ WG.perf.spawnBurst 是函数\n  ✓ 注册了 1 个 window keydown 监听\n  ✓ stats.fps 来自 Loop.frameStats\n  ✓ stats.p95Sim\n  ✓ stats.p95Render\n  ✓ entities.monsters（count getter）\n  ✓ entities.projectiles（无实例时安全为 0）\n  ✓ entities.drops（count() 方法）\n  ✓ entities.particles（count getter）\n  ✓ entities.numbers（count getter）\n  ✓ stats.degraded 关闭\n  ✓ stats 为实时视图（怪物数刷新）\n  ✓ stats 为实时视图（降级状态刷新）\n  ✓ stats 返回稳定对象（原地更新，便于叠层复用）\n  ✓ 非对局状态 spawnBurst 返回 0 且不生成\n  ✓ 非对局状态未调用模块接口\n  ✓ spawnBurst(0) 返回 0\n  ✓ spawnBurst(7) 返回实际生成数\n  ✓ 怪物计数累加\n  ✓ 调用公开 Director.spawnBurst(7)\n  ✓ spawnBurst 上限钳制到 CONFIG.monsters.cap\n  ✓ 模块收到钳制后的数量\n  ✓ fastForward(330) 生效\n  ✓ 对局时间推进到 330s（5:30）\n  ✓ remaining 同步\n  ✓ 按导演目标补怪一次\n  ✓ 330s 目标约 220，缺口 208（12→220）\n  ✓ 补怪后同屏 220\n  ✓ fastForward 超界仍返回 true\n  ✓ 时间钳制到单局时长 480\n  ✓ remaining 不为负\n  ✓ 非对局状态 fastForward 返回 false\n  ✓ F3 打开叠层\n  ✓ F3 取消 #hud-debug 的 hidden\n  ✓ #hud-debug 生成 19 行 × 2 列\n  ✓ 首行键名为 FPS\n  ✓ F3 显示等级/经验\n  ✓ F3 显示攻击力/攻速（AC-5）\n  ✓ F3 显示拾取/磁吸半径（AC-5）\n  ✓ F3 显示 HP\n  ✓ e.repeat 不重复切换\n  ✓ F4 快进到 330s\n  ✓ F4 触发一次目标补怪\n  ✓ F5 触发一次怪潮\n  ✓ F5 请求 120 只\n  ✓ Ctrl+F4 不触发快进\n  ✓ 再次 F3 关闭叠层\n  ✓ 关闭时恢复 hidden\n  ✓ 缺少 #hud-debug 时 overlay 安全跳过（不抛错）\n\nperf-check: 52 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/perf-integration-check.js",
+      "exitCode": 0,
+      "output": "perf-integration-check: 真实 monsters + WG.perf\n  ✓ 初始怪物为 0\n  ✓ perf.stats 读取真实 MonsterSystem.count\n  ✓ spawnBurst(120) 用真实 Manager/Director 生成 120 只\n  ✓ MonsterSystem.count 变为 120\n  ✓ perf.stats 同步为 120\n  ✓ 120 只全部在视口外（≥ spawnRingMin-2）\n  ✓ fastForward(330) 生效\n  ✓ world.runTime === 330\n  ✓ world.remaining === 150\n  ✓ 补怪后同屏进入 200~220（目标 220）\n  ✓ fastForward 确实增加了真实怪物\n  ✓ 第二次 spawnBurst 达到 300 硬上限\n  ✓ 实际生成数受硬上限约束\n  ✓ 300 怪下 MonsterSystem/Director.update 不抛错\n  ✓ perf.stats 最终读数为 300\n  ✓ 无 CombatSystem 实例时剑气计数安全为 0\n\nperf-integration-check: 16 passed, 0 failed\n"
+    },
+    {
+      "command": "node src/sects/self-check.js",
+      "exitCode": 0,
+      "output": "Warning: truncated output (original token count: 1235)\nTotal output lines: 168\n\n\n[1] 三门派初始属性\n  PASS DEFS.jianzong 存在\n  PASS jianzong.atk\n  PASS jianzong.atkInterval\n  PASS jianzong.maxHp\n  PASS jianzong.speed\n  PASS jianzong.regen\n  PASS jianzong.critRate\n  PASS jianzong.critMult\n  PASS jianzong.damageReduction\n  PASS jianzong player.maxHp 同步\n  PASS jianzong player.hp 开局回满\n  PASS jianzong current()\n  PASS jianzong 两个专属选项\n  PASS DEFS.daomen 存在\n  PASS daomen.atk\n  PASS daomen.atkInterval\n  PASS daomen.maxHp\n  PASS daomen.speed\n  PASS daomen.regen\n  PASS daomen.critRate\n  PASS daomen.critMult\n  PASS daomen.damageReduction\n  PASS daomen player.maxHp 同步\n  PASS daomen player.hp 开局回满\n  PASS daomen current()\n  PASS daomen 两个专属选项\n  PASS DEFS.yigu 存在\n  PASS yigu.atk\n  PASS yigu.atkInterval\n  PASS yigu.maxHp\n  PASS yigu.speed\n  PASS yigu.regen\n  PASS yigu.critRate\n  PASS yigu.critMult\n  PASS yigu.damageReduction\n  PASS yigu player.maxHp 同步\n  PASS yigu player.hp 开局回满\n  PASS yigu current()\n  PASS yigu 两个专属选项\n\n[2] 升级选项构成与事件\n  PASS level:up 后产生待选呈现\n  PASS 发出 1 次 choice:offer\n  PASS Lv2 恰好 3 个选项\n  PASS Lv2 含 1 个门派专属\n  PASS Lv2 含 2 个通用\n  PASS Lv2 选项不重复\n  PASS choice:offer 载荷 {level,options}\n  PASS choose 应用第一个选项\n  PASS 发出 1 次 choice:pick\n  PASS choice:pick.optionId 正确\n  PASS choice:pick.level 正确\n  PASS 同一呈现已被消费后不能重复选\n\n[3] 绝学保底与确定性\n  PASS 同 seed 两次抽取序列完全一致\n  PASS Lv3 首位 = whirl\n  PASS Lv5 首位 = swords\n  PASS Lv8 首位 = twin\n  PASS Lv2 不重复\n  PASS Lv2 不超过 3 个\n  PASS Lv3 不重复\n  PASS Lv3 不超过 3 个\n  PASS Lv4 不重复\n  PASS Lv4 不超过 3 个\n  PASS Lv5 不重复\n  …335 tokens truncated…保留 4 位小数）\n\n[6] 效果与字段\n  PASS 医谷初始减伤 0.05\n  PASS yg_herb 应用\n  PASS yg_herb 掉落倍率 1.5\n  PASS yg_herb 回复加成 10\n  PASS yg_mend 应用\n  PASS yg_mend 减伤 0.05+0.10\n  PASS yg_mend 回血 1.5+0.5\n  PASS vigor 应用\n  PASS vigor maxHp 140*1.15\n  PASS player.maxHp 同步 161\n  PASS vigor 即时回复 20（50->70）\n  PASS magnet 应用\n  PASS magnet 拾取半径 30*1.2\n  PASS magnet 磁吸半径 80*1.2\n  PASS reach 应用\n  PASS reach 射程 340*1.15\n  PASS pierce 应用\n  PASS pierce 1+1\n  PASS 医谷不能选剑宗专属\n  PASS jz_aura 应用\n  PASS 剑罡攻速 +10%\n  PASS 剑罡飞行速度 620*1.15\n  PASS dm_cleave 应用\n  PASS cleave 标志位写入\n  PASS dm_edge 应用\n  PASS 刀魄暴击伤害 1.6+0.3\n\n[7] 幂等与复位\n  PASS 同门派重开前先叠 1 层成长\n  PASS 重复 selectSect 属性不变\n  PASS 重复 selectSect 不回满 HP\n  PASS 重复 selectSect 不重置已选成长\n  PASS current() 仍为 yigu\n  PASS 同门派重复 selectSect 不发 sect:selected\n  PASS sect:selected 载荷 sectId 正确\n  PASS 首次选择发 sect:selected\n  PASS playing 中同门派重复确认不发事件\n  PASS playing 中重复确认属性不变\n  PASS playing 中切换门派发 sect:selected\n  PASS over 中同门派确认不发事件（重开由 UI ui:restart 负责）\n  PASS 结算后确认门派保持 yigu\n  PASS reset 后无门派\n  PASS reset 后层数清空\n  PASS 升级后等待玩家选择\n  PASS 未选择前不自动应用任何选项\n  PASS 非法选项被拒绝\n\n[8] 连续升级排队\n  PASS 连续升级只呈现第一级\n  PASS 选择后呈现下一级\n  PASS 第二个呈现为 Lv3\n  PASS 第三个呈现为 Lv4\n\n[9] 静态口径扫描\n  PASS 三文件无抽选/收集式命名\n\nself-check: 137 passed, 0 failed\n"
+    },
+    {
+      "command": "node tests/bench.js",
+      "exitCode": 0,
+      "output": "\n江湖夜雨 · core bench（Node 纯逻辑，无 DOM）\nseed=20261031  frames=1000  warmup=120  dt=1/60\nentities: monsters=300 projectiles=200 drops=150 particles=600 numbers=64 (pool caps)\nsim/frame: p50=0.079 ms  p95=0.153 ms  p99=0.204 ms  max=0.351 ms  avg=0.091 ms\ntotal=91.579 ms  busHits=1120\nbudget: CONFIG.perf.simP95Ms=6 ms → PASS（仅 Node 回归基线，不代表浏览器帧率）\n\n"
+    }
+  ]
+}

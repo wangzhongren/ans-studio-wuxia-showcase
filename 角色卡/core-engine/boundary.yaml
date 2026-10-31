@@ -1,0 +1,8 @@
+role: core-engine
+entries:
+  - kind: directory
+    path: src/core/
+    purpose: core-runtime 模块：循环/输入/相机/空间哈希/对象池/RNG/事件总线/组合根
+  - kind: directory
+    path: tests/
+    purpose: perf-harness 模块：F3 性能叠层、基准与调试复现钩子

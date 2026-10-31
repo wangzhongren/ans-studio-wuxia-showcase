@@ -1,0 +1,8 @@
+role: presentation-fx
+entries:
+  - kind: directory
+    path: src/fx/
+    purpose: visual-fx 模块：粒子/伤害数字/受击白闪/震屏/剑雨/自动降级
+  - kind: directory
+    path: src/ui/
+    purpose: hud-ui 模块：标题/HUD/结算/重开/调试叠层容器

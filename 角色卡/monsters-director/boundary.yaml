@@ -1,0 +1,5 @@
+role: monsters-director
+entries:
+  - kind: directory
+    path: src/monsters/
+    purpose: monsters-waves 模块：怪物模板/AI/刷怪导演/波次/同屏上限

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" role="img" aria-label="占位素材：游侠（怪物）">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <linearGradient id="monster-cloak" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4a5c"/>
+      <stop offset="1" stop-color="#111825"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="24" cy="44" rx="12" ry="3" fill="#070a0f" opacity="0.6"/>
+  <path d="M24 8 C34 12 38 26 36 40 L12 40 C10 26 14 12 24 8 Z" fill="url(#monster-cloak)" stroke="#0b0f16" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M17 18 C20 14 28 14 31 18 C28 24 20 24 17 18 Z" fill="#070a0f"/>
+  <circle cx="21" cy="18" r="1.6" fill="#d3564a"/>
+  <circle cx="27" cy="18" r="1.6" fill="#d3564a"/>
+  <path d="M34 20 L44 12" stroke="#8fa3b0" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 30 L43 30" stroke="#8fa3b0" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+</svg>

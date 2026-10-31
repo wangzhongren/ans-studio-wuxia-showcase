@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="占位素材：侠客">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <linearGradient id="player-robe" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8e2d4"/>
+      <stop offset="1" stop-color="#5d6f80"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="32" cy="57" rx="16" ry="4" fill="#070a0f" opacity="0.55"/>
+  <path d="M32 15 L45 56 L19 56 Z" fill="url(#player-robe)" stroke="#111825" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M25 32 L39 32" stroke="#111825" stroke-width="2" opacity="0.6"/>
+  <circle cx="32" cy="12" r="7" fill="#e8e2d4" stroke="#111825" stroke-width="2"/>
+  <path d="M23 10 L41 10" stroke="#111825" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M43 24 L58 7" stroke="#bfe9ff" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M39 27 L51 15" stroke="#4fd1a5" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+</svg>

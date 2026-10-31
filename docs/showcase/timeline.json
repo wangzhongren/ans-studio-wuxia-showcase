@@ -1,0 +1,72 @@
+{
+  "project": "江湖夜雨 / ANS-studio capability showcase",
+  "timezone": "Asia/Shanghai",
+  "exportedAt": "2026-10-31T13:23:46.092Z",
+  "source": "Selected events from local .ans/state/tasks.jsonl and supporting document creation times",
+  "note": "Raw sessions are excluded. This is a curated extract, not an independent audit or a claim of continuous active work.",
+  "firstTaskAt": "2026-10-31T06:17:31.037Z",
+  "lastSelectedEventAt": "2026-10-31T13:14:34.851Z",
+  "elapsedSeconds": 25023.814,
+  "events": [
+    {
+      "timestamp": "2026-10-31T06:17:31.037Z",
+      "sourceType": "ANS task event",
+      "kind": "task.created",
+      "taskId": "t-mvw0ednh-9ab3a0ca",
+      "role": "chief",
+      "label": "首个产品需求任务创建"
+    },
+    {
+      "timestamp": "2026-10-31T06:31:58.262Z",
+      "sourceType": "ANS task event",
+      "kind": "task.reported",
+      "taskId": "t-mvw0vxp5-1b1eee21",
+      "role": "convener",
+      "label": "基础版开发任务派发"
+    },
+    {
+      "timestamp": "2026-10-31T07:13:00.084Z",
+      "sourceType": "Local file creation time (supporting evidence)",
+      "file": "docs/scheduling/wuxia-rogue-delivery-report.md",
+      "label": "基础版首份交付报告落盘"
+    },
+    {
+      "timestamp": "2026-10-31T07:32:57.352Z",
+      "sourceType": "ANS task event",
+      "kind": "task.reported",
+      "taskId": "t-mvw2xqtp-6ea3656e",
+      "role": "verifier",
+      "label": "基础版返工独立逻辑复验通过"
+    },
+    {
+      "timestamp": "2026-10-31T09:57:12.566Z",
+      "sourceType": "ANS task event",
+      "kind": "task.reported",
+      "taskId": "t-mvw86k5v-4542dd10",
+      "role": "convener",
+      "label": "扩展版新流程线计划与首阶段派发"
+    },
+    {
+      "timestamp": "2026-10-31T10:34:54.955Z",
+      "sourceType": "Local file creation time (supporting evidence)",
+      "file": "docs/scheduling/wuxia-rogue-v2-delivery-report-v1.md",
+      "label": "扩展版交付报告落盘，当时生成美术尚未完成"
+    },
+    {
+      "timestamp": "2026-10-31T12:51:51.933Z",
+      "sourceType": "ANS task event",
+      "kind": "task.reported",
+      "taskId": "t-mvwe3129-4c5adf60",
+      "role": "verifier",
+      "label": "美术接入与全量回归独立核对，仍列有验收待办"
+    },
+    {
+      "timestamp": "2026-10-31T13:14:34.851Z",
+      "sourceType": "ANS task event",
+      "kind": "task.reported",
+      "taskId": "t-mvwf3yqy-cb972045",
+      "role": "monsters-director",
+      "label": "怪物近战伤害与动画时序修正报告"
+    }
+  ]
+}

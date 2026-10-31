@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="占位素材：经验珠">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <radialGradient id="xp-core" cx="0.38" cy="0.32" r="0.75">
+      <stop offset="0" stop-color="#e8fff6"/>
+      <stop offset="0.45" stop-color="#7de3c0"/>
+      <stop offset="1" stop-color="#1f6f58"/>
+    </radialGradient>
+  </defs>
+  <circle cx="12" cy="12" r="9" fill="#4fd1a5" opacity="0.22"/>
+  <circle cx="12" cy="12" r="6" fill="url(#xp-core)" stroke="#0b0f16" stroke-width="1"/>
+  <circle cx="9.6" cy="9.4" r="1.5" fill="#f6f2e8" opacity="0.85"/>
+</svg>

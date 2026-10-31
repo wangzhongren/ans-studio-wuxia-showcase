@@ -1,0 +1,5 @@
+role: art-generator
+entries:
+  - kind: directory
+    path: tools/art/
+    purpose: art-pipeline 模块：提示词/生成与校验脚本/原始出图/生成记录（离线、非运行时）

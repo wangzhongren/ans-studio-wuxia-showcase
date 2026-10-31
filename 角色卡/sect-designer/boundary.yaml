@@ -1,0 +1,5 @@
+role: sect-designer
+entries:
+  - kind: directory
+    path: src/sects/
+    purpose: sects-progression 模块：门派定义/升级选项池/选择状态与属性应用

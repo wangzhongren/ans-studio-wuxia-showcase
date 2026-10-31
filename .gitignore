@@ -1,0 +1,34 @@
+# Local ANS runtime state and private conversation logs
+.ans/
+.agents/
+.codex/
+
+# Secrets and machine-specific configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python environments, caches and model downloads
+**/venv/
+**/.venv/
+**/__pycache__/
+*.py[cod]
+.cache/
+**/.selftest/
+node_modules/
+
+# Raw generation outputs; runtime WebP assets are committed
+tools/art/out/*
+!tools/art/out/README.txt
+
+# Local logs and editor/OS files
+*.log
+docs/audit/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

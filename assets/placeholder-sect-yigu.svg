@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="384" viewBox="0 0 256 384" role="img" aria-label="医谷卷轴占位">
+  <defs>
+    <linearGradient id="roller" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#efd193"/>
+      <stop offset="0.4" stop-color="#c79a4e"/>
+      <stop offset="1" stop-color="#6d4a1c"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f2de"/>
+      <stop offset="0.55" stop-color="#e9e6c4"/>
+      <stop offset="1" stop-color="#d6d3a4"/>
+    </linearGradient>
+    <radialGradient id="gourd" cx="0.38" cy="0.32" r="0.72">
+      <stop offset="0" stop-color="#9fe0a8"/>
+      <stop offset="0.5" stop-color="#4f9b62"/>
+      <stop offset="1" stop-color="#245c37"/>
+    </radialGradient>
+    <radialGradient id="seal-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#7de3c0" stop-opacity="0.38"/>
+      <stop offset="0.6" stop-color="#2e7d6a" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#2e7d6a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect x="14" y="6" width="228" height="24" rx="12" fill="url(#roller)"/>
+  <circle cx="14" cy="18" r="11" fill="#8a5f27"/>
+  <circle cx="242" cy="18" r="11" fill="#8a5f27"/>
+  <rect x="14" y="354" width="228" height="24" rx="12" fill="url(#roller)"/>
+  <circle cx="14" cy="366" r="11" fill="#8a5f27"/>
+  <circle cx="242" cy="366" r="11" fill="#8a5f27"/>
+
+  <rect x="26" y="26" width="204" height="332" rx="8" fill="url(#paper)" stroke="#2e7d6a" stroke-width="2"/>
+  <rect x="34" y="34" width="188" height="316" rx="5" fill="none" stroke="#2e7d6a" stroke-opacity="0.32"/>
+
+  <circle cx="128" cy="150" r="68" fill="url(#seal-glow)"/>
+  <circle cx="128" cy="150" r="54" fill="none" stroke="#2e7d6a" stroke-opacity="0.3"/>
+
+  <ellipse cx="128" cy="128" rx="26" ry="30" fill="url(#gourd)" stroke="#1f4e31" stroke-width="1.5"/>
+  <ellipse cx="128" cy="188" rx="42" ry="46" fill="url(#gourd)" stroke="#1f4e31" stroke-width="1.5"/>
+  <path d="M104 148 C116 156 140 156 152 148" stroke="#1f4e31" stroke-width="6" fill="none"/>
+  <rect x="116" y="80" width="24" height="12" rx="4" fill="#8a5f27"/>
+  <path d="M120 84 L120 94" stroke="#5a3d1d" stroke-width="3"/>
+  <path d="M136 84 L136 94" stroke="#5a3d1d" stroke-width="3"/>
+  <path d="M128 74 C124 62 126 52 134 44" stroke="#2e7d6a" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M128 92 C116 84 108 84 100 88 C110 98 120 100 128 94 Z" fill="#4f9b62" stroke="#1f4e31" stroke-width="1.5"/>
+  <path d="M142 96 C150 84 162 80 172 82 C166 94 156 100 144 100 Z" fill="#4f9b62" stroke="#1f4e31" stroke-width="1.5"/>
+  <path d="M134 44 C142 36 152 34 162 38 C154 48 144 50 136 48 Z" fill="#7de3c0" stroke="#1f4e31" stroke-width="1.2"/>
+
+  <g stroke="#5d6f80" stroke-linecap="round" opacity="0.28">
+    <path d="M74 282 L182 282" stroke-width="3"/>
+    <path d="M74 300 L162 300" stroke-width="3"/>
+    <path d="M74 318 L176 318" stroke-width="3"/>
+  </g>
+  <rect x="178" y="326" width="18" height="18" rx="2" fill="none" stroke="#a33b32" stroke-width="2" opacity="0.75"/>
+</svg>

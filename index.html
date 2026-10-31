@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>江湖夜雨 · wuxia-rogue</title>
+  <link rel="stylesheet" href="styles/theme.css">
+</head>
+<body>
+  <!-- 渲染入口：全屏画布（尺寸由 core/main.js 按视口与 DPR 设置） -->
+  <canvas id="game" aria-label="江湖夜雨游戏画面"></canvas>
+
+  <!-- HUD 覆盖层：仅提供容器，数值与状态由 ui/hud.js 填充，不含玩法逻辑 -->
+  <div id="hud" class="hud">
+    <div class="hud__top">
+      <div class="hud-panel">
+        <span class="hud-label">时间</span>
+        <span class="hud-timer" id="hud-time">08:00</span>
+      </div>
+      <div class="hud-panel">
+        <div class="hud-row">
+          <span class="hud-label">等级</span>
+          <span class="hud-value hud-value--accent" id="hud-level">1</span>
+        </div>
+        <div class="hud-bar hud-bar--xp">
+          <span class="hud-bar__fill" id="hud-xp-fill" style="--hud-bar-fill: 0%"></span>
+        </div>
+        <div class="hud-row">
+          <span class="hud-label">经验</span>
+          <span class="hud-value hud-value--sm" id="hud-xp">0 / 40</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud__bottom">
+      <div class="hud-panel hud-panel--plain">
+        <div class="hud-row">
+          <span class="hud-label">气血</span>
+          <span class="hud-value hud-value--danger"><span id="hud-hp">100</span><span class="hud-unit">/ <span id="hud-hp-max">100</span></span></span>
+        </div>
+        <div class="hud-bar hud-bar--hp">
+          <span class="hud-bar__fill" id="hud-hp-fill" style="--hud-bar-fill: 100%"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hud__corner">
+      <span class="hud-chip">击杀 <span class="hud-chip__value" id="hud-kills">0</span></span>
+      <span class="hud-chip">拾取 <span class="hud-chip__value" id="hud-picks">0</span></span>
+      <span class="hud-chip hud-chip--silver">银两 <span class="hud-chip__value" id="hud-silver">0</span></span>
+    </div>
+
+    <div id="hud-debug" class="hud-debug" hidden></div>
+  </div>
+
+  <!-- 覆盖层挂载点：界面状态机与卷轴/石碑覆盖层，内容由 ui 模块渲染 -->
+  <div id="screen-root"></div>
+  <div id="overlay-root"></div>
+
+  <!-- 固定脚本加载顺序（architecture v2 §3.2，共 26 个）：经典 defer 脚本保序，非 ES 模块 -->
+  <script defer src="src/core/config.js"></script>
+  <script defer src="src/core/rng.js"></script>
+  <script defer src="src/core/pool.js"></script>
+  <script defer src="src/core/spatial-hash.js"></script>
+  <script defer src="src/core/input.js"></script>
+  <script defer src="src/core/camera.js"></script>
+  <script defer src="src/core/bus.js"></script>
+  <script defer src="src/core/loop.js"></script>
+  <script defer src="src/loot/tables.js"></script>
+  <script defer src="src/loot/progression.js"></script>
+  <script defer src="src/loot/pickup.js"></script>
+  <script defer src="src/sects/defs.js"></script>
+  <script defer src="src/sects/upgrades.js"></script>
+  <script defer src="src/sects/selection.js"></script>
+  <script defer src="src/combat/player.js"></script>
+  <script defer src="src/combat/auto-attack.js"></script>
+  <script defer src="src/monsters/types.js"></script>
+  <script defer src="src/monsters/ai.js"></script>
+  <script defer src="src/monsters/director.js"></script>
+  <script defer src="src/fx/particles.js"></script>
+  <script defer src="src/fx/damage-numbers.js"></script>
+  <script defer src="src/fx/screen-fx.js"></script>
+  <script defer src="src/ui/hud.js"></script>
+  <script defer src="src/ui/screens.js"></script>
+  <script defer src="src/ui/overlays.js"></script>
+  <script defer src="src/core/main.js"></script>
+  <script defer src="tests/perf.js"></script>
+</body>
+</html>

@@ -1,0 +1,780 @@
+/* ==========================================================================
+   江湖夜雨 · wuxia-rogue — styles/theme.css
+   模块：env-resources（属主 env-bootstrap）· 契约：architecture v1 §3.1
+   --------------------------------------------------------------------------
+   职责：
+   1. 用 CSS 变量统一全局配色 / 字体栈 / HUD 尺寸（--color-* / --font-* / --hud-*）；
+   2. 定义 #game 画布容器（全屏铺满）与 HUD 覆盖层定位；
+   3. 所有 HUD DOM 样式一律复用上述变量，禁止另写硬编码色值/字号。
+   约束：纯本地、零网络依赖；不引用外部字体或图片；不含任何玩法逻辑。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 设计令牌（Design Tokens）
+   -------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  /* ---- 配色：武侠夜色 ------------------------------------------------ */
+  /* 底色：夜、墨、雾 */
+  --color-night-900: #070a0f;   /* 页面最底色（近墨） */
+  --color-night-850: #101a28;   /* 夜色氛围渐晕 */
+  --color-night-800: #0b0f16;   /* 画布背景外圈 */
+  --color-night-700: #111825;   /* 面板底 */
+  --color-night-600: #18202f;   /* 面板悬浮层 */
+  --color-ink-500:   #1f2a3a;   /* 分割线/描边 */
+  --color-mist-400:  #5d6f80;   /* 次要文字 */
+  --color-mist-300:  #8fa3b0;   /* 弱化文字 */
+  --color-paper-100: #e8e2d4;   /* 主文字（宣纸白） */
+  --color-paper-050: #f6f2e8;   /* 高亮文字 */
+
+  /* 主题强调：青玉、赤血、鎏金、银两 */
+  --color-jade-400:  #4fd1a5;   /* 青玉：经验/生命回复/正反馈 */
+  --color-jade-300:  #7de3c0;   /* 青玉高光 */
+  --color-jade-700:  #1f6f58;   /* 青玉暗部 */
+  --color-blood-500: #d3564a;   /* 赤血：HP/受伤 */
+  --color-blood-400: #e46b5e;   /* 赤血高光 */
+  --color-blood-700: #7d2a24;   /* 赤血暗部 */
+  --color-gold-400:  #e8c37a;   /* 鎏金：标题/里程碑 */
+  --color-gold-300:  #f5d99c;   /* 鎏金高光 */
+  --color-silver-300:#c9d4dc;   /* 银两 */
+  --color-sword-300: #bfe9ff;   /* 剑气青光 */
+
+  /* 语义别名（供 HUD / 界面直接使用） */
+  --color-bg:          var(--color-night-900);
+  --color-canvas-bg:   var(--color-night-800);
+  --color-text:        var(--color-paper-100);
+  --color-text-strong: var(--color-paper-050);
+  --color-text-dim:    var(--color-mist-300);
+  --color-border:      rgba(143, 163, 176, 0.22);
+  --color-accent:      var(--color-jade-400);
+  --color-danger:      var(--color-blood-500);
+  --color-hp:          var(--color-blood-500);
+  --color-hp-bright:   var(--color-blood-400);
+  --color-xp:          var(--color-jade-400);
+  --color-xp-bright:   var(--color-jade-300);
+  --color-silver:      var(--color-silver-300);
+  --color-gold:        var(--color-gold-400);
+
+  /* ---- 字体栈：全部为系统本地字体，无 @font-face、无网络 -------------- */
+  --font-display: "STKaiti", "KaiTi", "Kaiti SC", "Songti SC", "Noto Serif CJK SC",
+                  "SimSun", "Times New Roman", serif;          /* 标题/古典 */
+  --font-ui:      "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB",
+                  "Source Han Sans SC", "Noto Sans CJK SC", system-ui,
+                  -apple-system, "Segoe UI", sans-serif;        /* HUD/正文 */
+  --font-mono:    "Cascadia Mono", "Consolas", "SFMono-Regular", Menlo,
+                  "Courier New", monospace;                     /* F3 数值/调试 */
+
+  /* ---- HUD 尺寸令牌（以 --hud-scale 为唯一缩放因子） ------------------ */
+  --hud-scale: 1;
+
+  --hud-pad-x:   calc(20px * var(--hud-scale));
+  --hud-pad-y:   calc(14px * var(--hud-scale));
+  --hud-gap:     calc(8px  * var(--hud-scale));
+  --hud-gap-sm:  calc(4px  * var(--hud-scale));
+  --hud-radius:  calc(10px * var(--hud-scale));
+  --hud-radius-sm: calc(6px * var(--hud-scale));
+  --hud-bar-h:   calc(10px * var(--hud-scale));
+  --hud-bar-h-sm:calc(6px  * var(--hud-scale));
+  --hud-icon:    calc(20px * var(--hud-scale));
+
+  --hud-font-xs: calc(11px * var(--hud-scale));
+  --hud-font-sm: calc(12px * var(--hud-scale));
+  --hud-font-md: calc(15px * var(--hud-scale));
+  --hud-font-lg: calc(22px * var(--hud-scale));
+  --hud-font-xl: calc(40px * var(--hud-scale));
+
+  --hud-panel-bg:     rgba(11, 15, 22, 0.72);
+  --hud-panel-bg-alt: rgba(17, 24, 37, 0.86);
+  --hud-panel-border: 1px solid var(--color-border);
+  --hud-shadow:       0 6px 24px rgba(0, 0, 0, 0.45);
+  --hud-text-shadow:  0 1px 2px rgba(0, 0, 0, 0.65);
+
+  /* 覆盖层层级：画布 < HUD < 标题/结算 < 调试面板 */
+  --z-canvas: 0;
+  --z-hud:    10;
+  --z-screen: 20;
+  --z-debug:  30;
+
+  /* 动效时长（仅用于界面过渡，不参与玩法计时） */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+}
+
+/* --------------------------------------------------------------------------
+   2. 基础重置与页面骨架
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+  background:
+    radial-gradient(120% 90% at 50% 0%, var(--color-night-850) 0%, var(--color-canvas-bg) 45%, var(--color-bg) 100%);
+  color: var(--color-text);
+  font-family: var(--font-ui);
+  font-size: var(--hud-font-md);
+  line-height: 1.4;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. #game 画布容器：全屏铺满、不参与文档流
+   -------------------------------------------------------------------------- */
+#game {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: var(--color-canvas-bg);
+  z-index: var(--z-canvas);
+  /* 画布由 JS 按视口/DPR 设置像素尺寸，这里只负责铺满与定位 */
+  image-rendering: auto;
+  cursor: default;
+}
+
+/* 可选：舞台包裹层（若 index.html 采用 <div class="stage"> 包裹 canvas） */
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-canvas-bg);
+}
+
+/* --------------------------------------------------------------------------
+   4. HUD 覆盖层
+   DOM 约定（详见 assets/README.md）：
+     <div id="hud" class="hud is-idle">
+       <div class="hud__top"> ... </div>
+       <div class="hud__bottom"> ... </div>
+       <div class="hud__debug" hidden> ... </div>
+     </div>
+   -------------------------------------------------------------------------- */
+.hud,
+#hud {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-hud);
+  pointer-events: none;          /* 默认不挡鼠标；交互元素单独开启 */
+  font-family: var(--font-ui);
+  font-size: var(--hud-font-md);
+  color: var(--color-text);
+  text-shadow: var(--hud-text-shadow);
+}
+
+.hud__top,
+.hud__bottom,
+.hud__left,
+.hud__right,
+.hud__corner {
+  position: absolute;
+  display: flex;
+  gap: var(--hud-gap);
+  pointer-events: none;
+}
+
+.hud__top {
+  top: var(--hud-pad-y);
+  left: var(--hud-pad-x);
+  right: var(--hud-pad-x);
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.hud__bottom {
+  bottom: var(--hud-pad-y);
+  left: var(--hud-pad-x);
+  right: var(--hud-pad-x);
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.hud__left,
+.hud__right {
+  top: 50%;
+  flex-direction: column;
+  transform: translateY(-50%);
+}
+
+.hud__left  { left: var(--hud-pad-x); }
+.hud__right { right: var(--hud-pad-x); }
+
+.hud__corner {
+  right: var(--hud-pad-x);
+  bottom: calc(var(--hud-pad-y) + var(--hud-font-xl));
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* ---- HUD 面板 ------------------------------------------------------- */
+.hud-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hud-gap-sm);
+  padding: calc(var(--hud-gap) * 1.25) calc(var(--hud-gap) * 1.75);
+  min-width: calc(120px * var(--hud-scale));
+  background: var(--hud-panel-bg);
+  border: var(--hud-panel-border);
+  border-radius: var(--hud-radius);
+  box-shadow: var(--hud-shadow);
+  backdrop-filter: blur(2px);
+}
+
+.hud-panel--plain {
+  padding: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  min-width: 0;
+  backdrop-filter: none;
+}
+
+/* ---- 文本与数值 ----------------------------------------------------- */
+.hud-label {
+  font-size: var(--hud-font-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+}
+
+.hud-value {
+  font-family: var(--font-ui);
+  font-size: var(--hud-font-lg);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-strong);
+  line-height: 1.1;
+}
+
+.hud-value--sm { font-size: var(--hud-font-md); font-weight: 600; }
+.hud-value--accent { color: var(--color-accent); }
+.hud-value--gold   { color: var(--color-gold); }
+.hud-value--danger { color: var(--color-danger); }
+.hud-value--silver { color: var(--color-silver); }
+
+.hud-unit {
+  font-size: var(--hud-font-xs);
+  font-weight: 400;
+  color: var(--color-text-dim);
+  margin-left: 0.15em;
+}
+
+.hud-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--hud-gap);
+  font-size: var(--hud-font-sm);
+  color: var(--color-text-dim);
+}
+
+.hud-row .hud-value { font-size: var(--hud-font-md); }
+
+/* ---- 计时器 --------------------------------------------------------- */
+.hud-timer {
+  font-family: var(--font-mono);
+  font-size: var(--hud-font-xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--color-text-strong);
+  line-height: 1;
+}
+
+.hud-timer--warning { color: var(--color-gold); }
+
+/* ---- 状态条（HP / XP / 冷却） --------------------------------------- */
+.hud-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: var(--hud-bar-h);
+  overflow: hidden;
+  background: var(--color-ink-500);
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--hud-bar-h) / 2);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.hud-bar--sm { height: var(--hud-bar-h-sm); }
+
+.hud-bar__fill {
+  display: block;
+  height: 100%;
+  width: var(--hud-bar-fill, 0%);
+  border-radius: inherit;
+  transition: width var(--dur-fast) linear;
+  will-change: width;
+}
+
+.hud-bar--hp .hud-bar__fill {
+  background: linear-gradient(90deg, var(--color-blood-700), var(--color-hp), var(--color-hp-bright));
+}
+
+.hud-bar--xp .hud-bar__fill {
+  background: linear-gradient(90deg, var(--color-jade-700), var(--color-xp), var(--color-xp-bright));
+}
+
+.hud-bar--cooldown .hud-bar__fill {
+  background: linear-gradient(90deg, var(--color-gold-400), var(--color-gold-300));
+}
+
+.hud-bar__label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--hud-font-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-text-strong);
+  text-shadow: var(--hud-text-shadow);
+}
+
+/* ---- 状态胶囊 / 计数 ------------------------------------------------- */
+.hud-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--hud-gap-sm);
+  padding: calc(var(--hud-gap-sm) * 0.75) var(--hud-gap);
+  background: var(--hud-panel-bg);
+  border: var(--hud-panel-border);
+  border-radius: 999px;
+  font-size: var(--hud-font-sm);
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.hud-chip__icon {
+  width: var(--hud-icon);
+  height: var(--hud-icon);
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.hud-chip__value {
+  font-weight: 700;
+  color: var(--color-text-strong);
+}
+
+.hud-chip--silver .hud-chip__value { color: var(--color-silver); }
+.hud-chip--hp     .hud-chip__value { color: var(--color-danger); }
+
+/* ---- 调试面板（F3，由 WG.perf.overlay 填充） ------------------------ */
+.hud__debug,
+.hud-debug {
+  position: fixed;
+  top: var(--hud-pad-y);
+  right: var(--hud-pad-x);
+  z-index: var(--z-debug);
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: var(--hud-gap-sm) var(--hud-gap);
+  padding: var(--hud-gap) calc(var(--hud-gap) * 1.5);
+  min-width: calc(180px * var(--hud-scale));
+  background: var(--hud-panel-bg-alt);
+  border: var(--hud-panel-border);
+  border-radius: var(--hud-radius-sm);
+  box-shadow: var(--hud-shadow);
+  font-family: var(--font-mono);
+  font-size: var(--hud-font-xs);
+  line-height: 1.5;
+  color: var(--color-text-dim);
+  pointer-events: none;
+  white-space: pre;
+}
+
+.hud-debug__key { color: var(--color-mist-400); }
+.hud-debug__val {
+  color: var(--color-text-strong);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.hud-debug__val--warn { color: var(--color-gold); }
+.hud-debug__val--bad  { color: var(--color-danger); }
+
+/* --------------------------------------------------------------------------
+   5. 标题 / 结算 / 重开 界面层（WG.ui.screens 的 DOM 容器）
+   -------------------------------------------------------------------------- */
+.screens,
+#screens {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-screen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--hud-pad-x);
+  background: radial-gradient(80% 70% at 50% 45%, rgba(7, 10, 15, 0.55), rgba(7, 10, 15, 0.92));
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base) linear;
+}
+
+.screens.is-active,
+.screens[data-active="true"] {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--hud-gap);
+  max-width: min(760px, 92vw);
+  text-align: center;
+}
+
+.screen.is-active,
+.screen[data-active="true"] {
+  display: flex;
+}
+
+.screen__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(var(--hud-font-xl), 7vw, calc(72px * var(--hud-scale)));
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-gold-300);
+  text-shadow: 0 0 24px rgba(232, 195, 122, 0.28), var(--hud-text-shadow);
+}
+
+.screen__subtitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--hud-font-lg);
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+}
+
+.screen__hint {
+  margin: 0;
+  font-size: var(--hud-font-sm);
+  color: var(--color-text-dim);
+  letter-spacing: 0.06em;
+  animation: hud-breathe 2.4s ease-in-out infinite;
+}
+
+.screen__stats {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: var(--hud-gap-sm) calc(var(--hud-gap) * 3);
+  margin: var(--hud-gap) 0;
+  padding: calc(var(--hud-gap) * 1.5) calc(var(--hud-gap) * 2.5);
+  background: var(--hud-panel-bg);
+  border: var(--hud-panel-border);
+  border-radius: var(--hud-radius);
+  box-shadow: var(--hud-shadow);
+  font-size: var(--hud-font-md);
+  font-variant-numeric: tabular-nums;
+}
+
+.screen__stats dt {
+  margin: 0;
+  color: var(--color-text-dim);
+  text-align: left;
+}
+
+.screen__stats dd {
+  margin: 0;
+  color: var(--color-text-strong);
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ---- 按钮（仅界面层，非玩法交互） ----------------------------------- */
+.btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--hud-gap-sm);
+  padding: calc(var(--hud-gap) * 1.1) calc(var(--hud-gap) * 2.2);
+  font-family: var(--font-ui);
+  font-size: var(--hud-font-md);
+  letter-spacing: 0.08em;
+  color: var(--color-night-900);
+  background: linear-gradient(180deg, var(--color-gold-300), var(--color-gold-400));
+  border: 1px solid var(--color-gold-400);
+  border-radius: var(--hud-radius-sm);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out), filter var(--dur-fast) var(--ease-out);
+}
+
+.btn:hover  { filter: brightness(1.08); }
+.btn:active { transform: translateY(1px) scale(0.99); }
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-jade-300);
+  outline-offset: 2px;
+}
+
+.btn--ghost {
+  color: var(--color-text);
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   6. 工具类
+   -------------------------------------------------------------------------- */
+.u-hidden { display: none !important; }
+.u-dim    { opacity: 0.55; }
+.u-center { display: flex; align-items: center; justify-content: center; }
+
+/* --------------------------------------------------------------------------
+   7. 动效与自适应
+   -------------------------------------------------------------------------- */
+@keyframes hud-breathe {
+  0%, 100% { opacity: 0.45; }
+  50%      { opacity: 1; }
+}
+
+/* 小屏/窗口较窄时整体缩小 HUD，保持画布全屏 */
+@media (max-width: 900px) {
+  :root { --hud-scale: 0.88; }
+}
+
+@media (max-width: 640px) {
+  :root { --hud-scale: 0.76; }
+}
+
+/* 尊重系统减少动态效果偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. v2 覆盖层面板：卷轴（scroll-panel）与石碑（stele-option）
+   DOM + CSS 实现，供 #screen-root / #overlay-root 使用，不依赖 Canvas 绘制，
+   不引用任何图片或远程资源。类名遵循架构 §3.1 / §4.7 口径。
+   子元素：__image / __name / __role / __stats / __special / __top / __icon /
+           __type / __desc；选中态为 .is-active。
+   -------------------------------------------------------------------------- */
+.scroll-panel,
+.stele-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--hud-gap);
+  min-height: calc(300px * var(--hud-scale));
+  padding: calc(var(--hud-gap) * 1.75);
+  text-align: left;
+  color: var(--color-text);
+  background: linear-gradient(180deg, rgba(24, 32, 47, 0.96), rgba(11, 15, 22, 0.98));
+  border: 1px solid var(--color-border);
+  border-radius: var(--hud-radius);
+  box-shadow: var(--hud-shadow);
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  transition:
+    transform var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+
+/* 卷轴上下轴杆：纯 CSS 渐变装饰 */
+.scroll-panel::before,
+.scroll-panel::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--hud-gap) * 0.5);
+  right: calc(var(--hud-gap) * 0.5);
+  height: calc(6px * var(--hud-scale));
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--color-gold-300), var(--color-gold-400));
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.scroll-panel::before { top: calc(var(--hud-gap) * 0.35); }
+.scroll-panel::after  { bottom: calc(var(--hud-gap) * 0.35); }
+
+.scroll-panel:hover,
+.stele-option:hover {
+  border-color: rgba(232, 195, 122, 0.55);
+  transform: translateY(-2px);
+}
+
+.scroll-panel.is-active,
+.stele-option.is-active {
+  border-color: var(--color-gold-400);
+  box-shadow:
+    0 0 0 1px rgba(232, 195, 122, 0.45),
+    0 12px 34px rgba(0, 0, 0, 0.52);
+}
+
+.scroll-panel:focus-visible,
+.stele-option:focus-visible {
+  outline: 2px solid var(--color-jade-300);
+  outline-offset: 2px;
+}
+
+.scroll-panel[aria-disabled="true"],
+.stele-option:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ---- 卷轴内容 ---- */
+.scroll-panel__image {
+  width: 100%;
+  height: calc(96px * var(--hud-scale));
+  object-fit: cover;
+  border-radius: var(--hud-radius-sm);
+  opacity: 0.9;
+}
+
+.scroll-panel__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: calc(26px * var(--hud-scale));
+  letter-spacing: 0.16em;
+  color: var(--color-gold-300);
+}
+
+.scroll-panel__role {
+  margin: 0;
+  font-size: var(--hud-font-sm);
+  letter-spacing: 0.1em;
+  color: var(--color-jade-300);
+}
+
+.scroll-panel__stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hud-gap-sm);
+  margin: 0;
+  padding: 0;
+  font-size: var(--hud-font-sm);
+}
+
+.scroll-panel__stats > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--hud-gap);
+  padding-bottom: 2px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.scroll-panel__stats dt {
+  margin: 0;
+  color: var(--color-text-dim);
+}
+
+.scroll-panel__stats dd {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-text-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.scroll-panel__special {
+  margin: auto 0 0;
+  padding-top: var(--hud-gap);
+  font-size: var(--hud-font-xs);
+  line-height: 1.6;
+  color: var(--color-text-dim);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- 石碑选项 ---- */
+.stele-option { min-height: calc(190px * var(--hud-scale)); }
+
+.stele-option__top {
+  display: flex;
+  align-items: center;
+  gap: var(--hud-gap);
+}
+
+.stele-option__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(40px * var(--hud-scale));
+  height: calc(40px * var(--hud-scale));
+  flex: 0 0 auto;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: calc(22px * var(--hud-scale));
+  color: var(--color-night-900);
+  background: linear-gradient(180deg, var(--color-gold-300), var(--color-gold-400));
+}
+
+.stele-option__name {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: calc(24px * var(--hud-scale));
+  letter-spacing: 0.1em;
+  color: var(--color-text-strong);
+}
+
+.stele-option__type {
+  align-self: flex-start;
+  padding: 2px var(--hud-gap);
+  font-size: var(--hud-font-xs);
+  letter-spacing: 0.12em;
+  color: var(--color-jade-300);
+  border: 1px solid rgba(79, 209, 165, 0.35);
+  border-radius: 999px;
+}
+
+.stele-option__desc {
+  margin: auto 0 0;
+  font-size: var(--hud-font-sm);
+  line-height: 1.65;
+  color: var(--color-text);
+}
+
+/* 窄屏下让面板随内容收缩，避免覆盖层溢出 */
+@media (max-width: 640px) {
+  .scroll-panel,
+  .stele-option {
+    min-height: 0;
+  }
+}

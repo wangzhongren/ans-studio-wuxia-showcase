@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="占位素材：疗伤丹葫芦">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <linearGradient id="potion-body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8c37a"/>
+      <stop offset="1" stop-color="#8a5a24"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="12" cy="21" rx="7" ry="1.8" fill="#070a0f" opacity="0.5"/>
+  <path d="M12 5 C16 9 19 12 19 16 C19 20 16 22 12 22 C8 22 5 20 5 16 C5 12 8 9 12 5 Z" fill="url(#potion-body)" stroke="#111825" stroke-width="1.2"/>
+  <rect x="9.5" y="2.5" width="5" height="3.5" rx="1" fill="#5d6f80" stroke="#111825" stroke-width="1"/>
+  <path d="M7.5 15 C8.5 12 11 11 12 11" stroke="#f5d99c" stroke-width="1" fill="none" opacity="0.85" stroke-linecap="round"/>
+</svg>

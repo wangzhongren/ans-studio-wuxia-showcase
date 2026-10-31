@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-label="剑宗直剑武器占位">
+  <defs>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f8f6ef"/>
+      <stop offset="0.42" stop-color="#dfe7ec"/>
+      <stop offset="0.62" stop-color="#9fb0bb"/>
+      <stop offset="1" stop-color="#5c6b76"/>
+    </linearGradient>
+    <linearGradient id="grip" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6b4a2c"/>
+      <stop offset="0.5" stop-color="#3d2918"/>
+      <stop offset="1" stop-color="#1d120a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5d99c"/>
+      <stop offset="0.5" stop-color="#c79a4e"/>
+      <stop offset="1" stop-color="#6d4a1c"/>
+    </linearGradient>
+    <linearGradient id="jade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2e7d6a"/>
+      <stop offset="0.5" stop-color="#7de3c0"/>
+      <stop offset="1" stop-color="#2e7d6a"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M47 87 C44 90 40 92 35 94" stroke="url(#jade)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M47 89 C45 92 43 94 40 96" stroke="#7de3c0" stroke-width="1.1" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <path d="M48 5 L53 17 L52 60 L44 60 L43 17 Z" fill="url(#steel)" stroke="#4f5f6b" stroke-width="0.8"/>
+  <path d="M48 10 L48 58" stroke="#ffffff" stroke-opacity="0.65"/>
+  <path d="M45.5 18 L45 58" stroke="#ffffff" stroke-opacity="0.22"/>
+
+  <path d="M30 60 C36 57 60 57 66 60 L65 66 C58 63 38 63 31 66 Z" fill="url(#gold)" stroke="#5a3d1d" stroke-width="0.8"/>
+  <path d="M33 61 C40 59 56 59 63 61" stroke="#fff4d6" stroke-opacity="0.7" fill="none"/>
+  <path d="M31 62 C28 62 27 64 27 66" stroke="#7de3c0" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+
+  <rect x="43.5" y="66" width="9" height="18" rx="3" fill="url(#grip)" stroke="#24160c" stroke-width="0.8"/>
+  <path d="M45 69 L51 73 M45 74 L51 78 M45 79 L51 83" stroke="#a87c43" stroke-width="0.9" stroke-opacity="0.65"/>
+
+  <circle cx="48" cy="84" r="4" fill="url(#gold)" stroke="#5a3d1d" stroke-width="0.8"/>
+  <circle cx="48" cy="84" r="1.5" fill="#2e7d6a"/>
+</svg>

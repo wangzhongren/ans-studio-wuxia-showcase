@@ -1,0 +1,5 @@
+role: combat-player
+entries:
+  - kind: directory
+    path: src/combat/
+    purpose: combat-player 模块：玩家移动/闪身/索敌/剑气发射/命中判定/玩家属性

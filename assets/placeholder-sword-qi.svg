@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="16" viewBox="0 0 48 16" role="img" aria-label="占位素材：剑气">
+  <!-- 程序化自绘占位 · 江湖夜雨 · 无第三方版权素材 -->
+  <defs>
+    <linearGradient id="qi-trail" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#bfe9ff" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#bfe9ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#f6f2e8"/>
+    </linearGradient>
+  </defs>
+  <path d="M2 8 C12 3 30 2 46 8 C30 14 12 13 2 8 Z" fill="url(#qi-trail)"/>
+  <path d="M10 8 C22 5.5 34 5.5 44 8" stroke="#4fd1a5" stroke-width="1.2" fill="none" opacity="0.75" stroke-linecap="round"/>
+</svg>

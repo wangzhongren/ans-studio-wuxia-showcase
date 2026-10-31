@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512" role="img" aria-label="石碑界面框占位">
+  <defs>
+    <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a4653"/>
+      <stop offset="0.5" stop-color="#222c37"/>
+      <stop offset="1" stop-color="#111820"/>
+    </linearGradient>
+    <linearGradient id="recess" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0c1218"/>
+      <stop offset="0.55" stop-color="#141d26"/>
+      <stop offset="1" stop-color="#0a0f15"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4a5a68"/>
+      <stop offset="0.5" stop-color="#8fa3b0"/>
+      <stop offset="1" stop-color="#4a5a68"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#4fd1a5" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#4fd1a5" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <path d="M40 512 L40 132 Q40 44 512 44 Q984 44 984 132 L984 512 Z" fill="url(#stone)" stroke="#0a0f15" stroke-width="4"/>
+  <path d="M52 504 L52 136 Q52 58 512 58 Q972 58 972 136 L972 504 Z" fill="none" stroke="url(#rim)" stroke-width="3" opacity="0.75"/>
+  <path d="M76 492 L76 148 Q76 84 512 84 Q948 84 948 148 L948 492 Z" fill="url(#recess)" stroke="#3a4653" stroke-width="2"/>
+  <path d="M92 476 L92 156 Q92 100 512 100 Q932 100 932 156 L932 476 Z" fill="none" stroke="#4fd1a5" stroke-opacity="0.18" stroke-width="1.5"/>
+
+  <ellipse cx="512" cy="300" rx="360" ry="160" fill="url(#glow)"/>
+
+  <g fill="#0a0f15" opacity="0.55">
+    <path d="M64 196 L88 180 L96 196 L80 210 Z"/>
+    <path d="M960 328 L936 344 L930 326 L948 314 Z"/>
+    <path d="M116 500 L136 474 L150 486 L134 512 Z"/>
+    <path d="M910 500 L892 470 L876 486 L890 512 Z"/>
+  </g>
+  <g fill="none" stroke="#8fa3b0" stroke-opacity="0.2" stroke-width="1.5">
+    <path d="M64 256 L82 276 L70 292"/>
+    <path d="M960 232 L940 250 L952 268"/>
+    <path d="M120 420 L136 438 L126 456"/>
+    <path d="M900 168 L918 186 L906 204"/>
+  </g>
+
+  <g fill="#4fd1a5" opacity="0.35">
+    <circle cx="124" cy="120" r="3"/>
+    <circle cx="900" cy="120" r="3"/>
+    <circle cx="124" cy="392" r="2.5"/>
+    <circle cx="900" cy="392" r="2.5"/>
+  </g>
+  <g stroke="#8fa3b0" stroke-opacity="0.16" stroke-width="1">
+    <path d="M160 84 L150 68"/>
+    <path d="M864 84 L874 68"/>
+    <path d="M160 492 L150 508"/>
+    <path d="M864 492 L874 508"/>
+  </g>
+</svg>

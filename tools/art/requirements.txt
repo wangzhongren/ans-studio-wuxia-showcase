@@ -1,0 +1,7 @@
+# art-pipeline 非 torch 依赖（torch 单独按 README §2 从 cu124 索引安装）
+# Qwen-Image-2.1 的 model_index.json 标注 _diffusers_version=0.37.0.dev0，
+# 需使用支持 QwenImage21Pipeline / Qwen3VL 的版本。
+diffusers>=0.37.0
+transformers>=4.57.0
+accelerate>=1.0.0
+pillow>=10.0.0
